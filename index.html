@@ -3,340 +3,430 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pulse | Fitness Dashboard</title>
+  <title>Form Atlas — Drift 03</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="app-container">
-    <!-- Sidebar -->
-    <nav class="sidebar" id="sidebar">
-      <div class="logo">PULSE</div>
-      <ul class="nav-links">
-        <li>
-          <button data-target="dashboard" class="nav-btn active">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
-            <span class="nav-label">Dashboard</span>
-          </button>
-        </li>
-        <li>
-          <button data-target="workout" class="nav-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg>
-            <span class="nav-label">Workout</span>
-          </button>
-        </li>
-        <li>
-          <button data-target="plan" class="nav-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
-              <line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/>
-              <line x1="3" x2="21" y1="10" y2="10"/>
-              <path d="m9 16 2 2 4-4"/>
-            </svg>
-            <span class="nav-label">Plan</span>
-          </button>
-        </li>
-        <li>
-          <button data-target="analytics" class="nav-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
-            <span class="nav-label">Analytics</span>
-          </button>
-        </li>
-        <li>
-          <button data-target="empty" class="nav-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
-            <span class="nav-label">Empty State</span>
-          </button>
-        </li>
-        <li>
-          <button data-target="onboarding" class="nav-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            <span class="nav-label">Onboarding</span>
-          </button>
-        </li>
-      </ul>
-    </nav>
+  <button id="themeToggle" aria-label="Toggle theme" class="theme-fab">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path d="M12 2a7 7 0 0 0-7 7c0 2 1 3.9 2.5 5.1.8.6 1.5 1.4 1.5 2.4v2.5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2.5c0-1 .7-1.8 1.5-2.4C18 15.9 19 14 19 12a7 7 0 0 0-7-7z"/><line x1="9" y1="22" x2="15" y2="22"/></svg>
+  </button>
+  <div class="header-rule"></div>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="header-left">
+        <button class="menu-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+        <div class="logo">
+          <span class="wordmark">FORM ATLAS</span>
+          <span class="brand-mark"></span>
+        </div>
+      </div>
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="text" class="search-input" placeholder="Search for brand, color, etc." />
+      </div>
+      <div class="header-nav-right">
+        <a href="#">News</a>
+        <a href="#">About</a>
+        <a href="#">Help</a>
+        <a href="#">Sell</a>
+        <div class="header-actions">
+          <button class="header-icon-btn mobile-search-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></button>
+          <button class="header-icon-btn cart-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h2l2 10h10l2-8H7"/></svg></button>
+          <button class="header-btn outline login-btn">Login</button>
+          <button class="header-btn filled signup-btn">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="secondary-nav-wrap">
+    <div class="wrap secondary-nav">
+      <button class="menu-btn">≡</button>
+      <a href="#">All</a>
+      <a href="#">Brands</a>
+      <a href="#">Trending</a>
+      <a href="#">New</a>
+      <a href="#" class="nav-deals">Deals</a>
+      <a href="#">Men</a>
+      <a href="#">Women</a>
+      <a href="#">Kids</a>
+      <a href="#">Sneakers</a>
+      <a href="#">Shoes</a>
+      <a href="#">Apparel</a>
+      <a href="#">Accessories</a>
+      <a href="#">Collectibles</a>
+      <a href="#">Trading Cards</a>
+      <a href="#">More</a>
+    </div>
+  </div>
 
-    <!-- Main Content -->
-    <main class="main-content">
-      
-      <!-- View 1: Onboarding -->
-      <section id="view-onboarding" class="view">
-        <div class="onboarding-container">
-          <div class="progress-dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
+  <div class="wrap main-content">
+    <div class="pdp-grid">
+      <!-- Left Column -->
+      <div class="pdp-left">
+        <div class="breadcrumb">Home / Sneakers / Form Atlas / Drift 03</div>
+        <div class="pdp-gallery">
+          <div class="gallery-cell" data-index="0">
+            <img src="images/lado.jpg" alt="Form Atlas Drift 03 - side view" />
+          </div>
+          <div class="gallery-cell" data-index="1">
+            <img src="images/diagonal.jpg" alt="Form Atlas Drift 03 - front 3/4 angle" />
+          </div>
+          <div class="gallery-cell" data-index="2">
+            <img src="images/cima.jpg" alt="Form Atlas Drift 03 - top-down view" />
+          </div>
+          <div class="gallery-cell" data-index="3">
+            <img src="images/baixo.jpg" alt="Form Atlas Drift 03 - sole" />
+          </div>
+          <div class="gallery-cell" data-index="4">
+            <img src="images/tras.jpg" alt="Form Atlas Drift 03 - rear view" />
+          </div>
+          <div class="gallery-cell" data-index="5">
+            <img src="images/tras-zoom.jpg" alt="Form Atlas Drift 03 - heel branding detail close-up" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="pdp-right" id="purchaseBlock">
+        <div class="title-row">
+          <div class="title-text">
+            <h1 class="product-name">Drift 03</h1>
+            <div class="subtitle">Smoke Quartz</div>
+          </div>
+          <div class="action-icons">
+            <button><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+            <button><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"/></svg></button>
+          </div>
+        </div>
+
+        <button class="size-dropdown" id="sizeDropdown">
+          <span class="sz-label">Size:</span>
+          <span class="sz-value">All <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <!-- Dropdown Menu -->
+        <div class="size-menu" id="sizeMenu">
+          <button class="sz-opt" data-size="7">US 7</button>
+          <button class="sz-opt" data-size="8">US 8</button>
+          <button class="sz-opt" data-size="9">US 9</button>
+          <button class="sz-opt" data-size="10">US 10</button>
+          <button class="sz-opt" data-size="11">US 11</button>
+          <button class="sz-opt" data-size="12">US 12</button>
+        </div>
+
+        <div class="purchase-card">
+          <div class="pc-top">
+            <div class="pc-state active" id="stateBuy">
+               <div class="pc-label">Buy Now for</div>
+               <div class="pc-value">$245</div>
+            </div>
+            <div class="pc-state" id="stateBid">
+               <div class="pc-label">Your Bid</div>
+               <div class="input-row">
+                 <span class="currency-symbol">$</span>
+                 <input type="number" id="bidInput" class="bid-input" value="210" min="180" />
+               </div>
+               <div class="bid-error" id="bidError">Bids start at $180.</div>
+            </div>
+            
+            <div class="demand-badge">
+              <svg class="bolt-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              <span>582 Sold in Last 3 Days!</span>
+            </div>
+          </div>
+
+          <div class="pc-buttons">
+            <button class="pc-btn bid" id="btnPlaceBid">Make Offer</button>
+            <button class="pc-btn filled" id="btnBuyNow">Buy Now</button>
+          </div>
+
+          <div class="pc-divider"></div>
+          
+          <div class="pc-bottom">
+            <div class="last-sale">Last Sale<br/><span class="bold">$238</span></div>
+            <a href="#" class="view-market">View Market Data</a>
           </div>
           
-          <div class="onboarding-step active" id="step-1">
-            <h1 class="headline">What's your goal?</h1>
-            <div class="options-grid">
-              <button class="option-card" onclick="selectOption(this, 1)">Lose weight</button>
-              <button class="option-card" onclick="selectOption(this, 1)">Build strength</button>
-              <button class="option-card" onclick="selectOption(this, 1)">Improve conditioning</button>
+          <div class="cta-msg" id="ctaMsg"></div>
+        </div>
+
+        <a href="#" class="sell-now-link">Sell Now for $210 or Ask for More →</a>
+
+        <div class="accordions">
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <div class="acc-left">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                Worry Free Purchasing
+              </div>
+              <svg class="acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-content">
+              <p>Every item is verified by our experts.</p>
             </div>
           </div>
-
-          <div class="onboarding-step" id="step-2">
-            <h1 class="headline">Where are you starting from?</h1>
-            <div class="options-grid">
-              <button class="option-card" onclick="selectOption(this, 2)">Beginner</button>
-              <button class="option-card" onclick="selectOption(this, 2)">Intermediate</button>
-              <button class="option-card" onclick="selectOption(this, 2)">Advanced</button>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <div class="acc-left">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                Buyer Promise
+              </div>
+              <svg class="acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-content">
+              <p>We stand behind every product sold on Form Atlas.</p>
             </div>
-          </div>
-
-          <div class="onboarding-step" id="step-3">
-            <h1 class="headline">Days available per week</h1>
-            <div class="options-grid">
-              <button class="option-card" onclick="selectOption(this, 3)">2–3 days</button>
-              <button class="option-card" onclick="selectOption(this, 3)">4–5 days</button>
-              <button class="option-card" onclick="selectOption(this, 3)">6–7 days</button>
-            </div>
-            <button class="btn-primary start-btn" onclick="finishOnboarding()">Start</button>
           </div>
         </div>
-      </section>
+      </div>
+    </div> <!-- end pdp-grid -->
 
-      <!-- View 2: Dashboard -->
-      <section id="view-dashboard" class="view active">
-        <header class="view-header">
-          <h1 class="headline">Today</h1>
-          <p class="sub-headline">Thursday, Oct 24</p>
-        </header>
+    <section class="section-spacing">
+      <div class="section-title">Related Products</div>
+      <div class="colorway-list">
+        <!-- Re-using colorways as related products -->
+        <div class="related-card">
+          <div class="rel-img-wrap">
+            <img src="images/volt-carbon.jpg.jpg" alt="Form Atlas Drift 03 — Volt Carbon colorway" />
+          </div>
+          <div class="rel-info">
+            <div class="rel-name">Drift 03 Volt Carbon</div>
+            <div class="rel-sub">Lowest Ask</div>
+            <div class="rel-price">$245</div>
+            <div class="rel-last">Last Sale: $230</div>
+          </div>
+        </div>
+        <div class="related-card">
+          <div class="rel-img-wrap">
+            <img src="images/cloud-ash.jpg.jpg" alt="Form Atlas Drift 03 — Cloud Ash colorway" />
+          </div>
+          <div class="rel-info">
+            <div class="rel-name">Drift 03 Cloud Ash</div>
+            <div class="rel-sub">Lowest Ask</div>
+            <div class="rel-price">$189</div>
+            <div class="rel-last">Last Sale: $195</div>
+          </div>
+        </div>
+        <div class="related-card">
+          <div class="rel-img-wrap">
+            <img src="images/rust-clay.jpg.jpg" alt="Form Atlas Drift 03 — Rust Clay colorway" />
+          </div>
+          <div class="rel-info">
+            <div class="rel-name">Drift 03 Rust Clay</div>
+            <div class="rel-sub">Lowest Ask</div>
+            <div class="rel-price">$215</div>
+            <div class="rel-last">Last Sale: $210</div>
+          </div>
+        </div>
+        <div class="related-card">
+          <div class="rel-img-wrap">
+            <img src="images/midnight-navy.jpg.jpg" alt="Form Atlas Drift 03 — Midnight Navy colorway" />
+          </div>
+          <div class="rel-info">
+            <div class="rel-name">Drift 03 Midnight Navy</div>
+            <div class="rel-sub">Lowest Ask</div>
+            <div class="rel-price">$260</div>
+            <div class="rel-last">Last Sale: $255</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section class="section-spacing">
+      <div class="section-title">Product Details</div>
+      <div class="details-grid">
+        <div class="details-left">
+          <div class="spec-row">
+            <span class="spec-lbl">Style</span>
+            <span class="spec-val">FA-DR03-SQ</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-lbl">Colorway</span>
+            <span class="spec-val">Smoke Quartz</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-lbl">Retail Price</span>
+            <span class="spec-val">$189</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-lbl">Release Date</span>
+            <span class="spec-val">03/14/2026</span>
+          </div>
+        </div>
+        <div class="details-right">
+          <div class="details-heading">Product Description</div>
+          <p class="body-text">The Drift 03 continues the run of highly recognizable releases with a muted and more playful color palette that still carries the signature details fans expect. Suede leather overlays combine with a cool grey base, while Quartz pink accent threading helps to give the sneaker a lighter and more seasonal personality. Carbon rubber outsoles help preserve the original vibe.<br/><br/><a href="#" class="read-more">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12" style="vertical-align:-1px"><path d="M6 9l6 6 6-6"/></svg></a></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section class="section-spacing">
+      <div class="section-title">Price History</div>
+      <div class="ph-top-bar">
+        <div class="ph-tabs" id="phTabs">
+          <button class="ph-tab" data-range="1m">1M</button>
+          <button class="ph-tab" data-range="3m">3M</button>
+          <button class="ph-tab active" data-range="6m">6M</button>
+          <button class="ph-tab" data-range="ytd">YTD</button>
+          <button class="ph-tab" data-range="1y">1Y</button>
+          <button class="ph-tab" data-range="all">All</button>
+        </div>
+        <a href="#" class="view-sales">View Sales ></a>
+      </div>
+      
+      <div class="sparkline-container" id="sparkContainer">
+        <!-- Y-axis labels and grid lines -->
+        <div class="y-axis">
+          <div class="y-axis-line"><span>$300</span></div>
+          <div class="y-axis-line"><span>$250</span></div>
+          <div class="y-axis-line"><span>$200</span></div>
+          <div class="y-axis-line"><span>$150</span></div>
+        </div>
         
-        <div class="dashboard-grid">
-          <!-- Activity Ring -->
-          <div class="card ring-card">
-            <div class="card-content-wrap">
-              <div class="ring-container">
-                <svg class="activity-ring" viewBox="0 0 100 100">
-                  <circle class="ring-bg" cx="50" cy="50" r="40"></circle>
-                  <circle class="ring-progress" id="dash-ring" cx="50" cy="50" r="40"></circle>
-                </svg>
-                <div class="ring-value">
-                  <span class="value number" data-value="72">0</span><span class="unit">%</span>
-                </div>
-              </div>
-              <div class="card-labels">
-                <span class="label">Today</span>
-                <span class="sub-label">of daily target</span>
-              </div>
-            </div>
+        <div class="svg-wrap">
+          <div class="spark-hover-line" id="sparkHoverLine"></div>
+          <svg class="spark-svg" viewBox="0 0 1000 200" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" style="stop-color: var(--positive); stop-opacity: 0.1;" />
+                <stop offset="100%" style="stop-color: var(--positive); stop-opacity: 0;" />
+              </linearGradient>
+            </defs>
+            <path id="sparkArea" style="fill: url(#sparkGrad);" />
+            <path id="sparkLine" style="fill: none; stroke: var(--positive); stroke-width: 2px;" />
+          </svg>
+          <div class="spark-marker" id="sparkMarker">
+            <div class="marker-ring"></div>
+            <div class="marker-dot" style="background: var(--positive); border-color: var(--bg); box-shadow: 0 0 0 2px var(--positive);"></div>
+            <div class="marker-label" id="sparkLabel">Oct 12<br/><strong>$238</strong></div>
           </div>
-
-          <!-- Sleep Card -->
-          <div class="card data-card">
-            <div class="card-header">
-              <span class="label">Sleep</span>
-            </div>
-            <div class="card-body">
-              <div class="value number">7<span class="unit">h</span> 12<span class="unit">m</span></div>
-              <span class="sub-label">Last night</span>
-            </div>
-          </div>
-
-          <!-- Calories Card -->
-          <div class="card data-card">
-            <div class="card-header">
-              <span class="label">Calories</span>
-            </div>
-            <div class="card-body">
-              <div class="value number"><span data-value="1840">0</span> <span class="unit">/ 2,200 kcal</span></div>
-              <span class="sub-label">360 remaining</span>
-            </div>
-          </div>
-
-          <!-- Weekly Summary -->
-          <div class="card summary-card">
-            <div class="card-header">
-              <span class="label">This week</span>
-            </div>
-            <div class="card-body">
-              <div class="bar-graph" id="weekly-bars">
-                <!-- Bars injected via JS -->
-              </div>
-            </div>
-          </div>
-
-          <!-- Streak card -->
-          <div class="card streak-card">
-            <div class="card-header"><span class="label">Streak</span></div>
-            <div class="card-body">
-              <div class="value number"><span id="streak-value">0</span><span class="unit"> days</span></div>
-              <span class="sub-label">Keep it going</span>
-            </div>
-          </div>
-
-          <!-- Next Workout card -->
-          <div class="card next-workout-card">
-            <div class="next-workout-inner">
-              <div>
-                <span class="label">Next workout</span>
-                <div class="next-workout-name">Lower Body B</div>
-                <span class="sub-label">Today · 4 exercises</span>
-              </div>
-              <button class="btn-start-next" onclick="switchView('workout')">Start →</button>
-            </div>
-          </div>
+          <div class="spark-overlay" id="sparkOverlay"></div>
         </div>
-      </section>
 
-      <!-- View 3: Workout -->
-      <section id="view-workout" class="view">
-        <header class="view-header">
-          <div>
-            <h1 class="headline">Current Session</h1>
-            <p class="sub-headline" id="workout-session-name">—</p>
-          </div>
-          <span class="label session-progress-label" id="session-progress-label">—</span>
-        </header>
-        <div class="workout-layout">
-          <div class="exercise-list-panel" id="exercise-list-panel"></div>
-          <div class="workout-detail-panel" id="workout-detail-panel"></div>
+        <!-- X-axis dates -->
+        <div class="x-axis" id="xAxis">
+          <span>May 1</span>
+          <span>May 14</span>
+          <span>May 28</span>
+          <span>Jun 11</span>
+          <span>Jun 25</span>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- View: Plan -->
-      <section id="view-plan" class="view">
-        <header class="view-header">
-          <h1 class="headline">Plan</h1>
-          <p class="sub-headline">This week</p>
-        </header>
-        <div class="week-strip" id="week-strip"></div>
-        <div id="day-detail"></div>
-      </section>
+    <div class="section-divider"></div>
 
-      <!-- View 4: Analytics -->
-      <section id="view-analytics" class="view">
-        <header class="view-header">
-          <h1 class="headline">Progress</h1>
-          <div class="toggle-pill" id="time-toggle">
-            <button class="toggle-btn active" data-time="week">Week</button>
-            <button class="toggle-btn" data-time="month">Month</button>
-            <button class="toggle-btn" data-time="year">Year</button>
-          </div>
-        </header>
-        
-        <div class="analytics-content">
-          <div class="callout-stat">
-            <span class="stat-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
-            </span>
-            <span class="stat-text">Personal record — <strong class="number">92.5kg</strong>, June 14</span>
-          </div>
-
-          <div class="card chart-card">
-            <div class="chart-header">
-              <span class="label">Volume Lifted (kg)</span>
-            </div>
-            <div class="chart-container">
-              <canvas id="analytics-chart"></canvas>
-            </div>
-          </div>
+    <section class="section-spacing">
+      <div class="section-title">Historical Data</div>
+      <div class="hist-grid">
+        <div class="hist-card">
+          <div class="hist-val">$180 - $289</div>
+          <div class="hist-lbl">Price Range | Last 12 Months</div>
         </div>
-      </section>
-
-      <!-- View 5: Empty State -->
-      <section id="view-empty" class="view">
-        <header class="view-header empty-header">
-          <div>
-            <h1 class="headline">No data yet</h1>
-            <p class="sub-headline">Complete your first workout to see it here.</p>
-          </div>
-          <button class="btn-primary" onclick="goToWorkout()">Start workout</button>
-        </header>
-        
-        <div class="dashboard-grid empty-grid">
-          <!-- Activity Ring -->
-          <div class="card ring-card">
-            <div class="card-content-wrap">
-              <div class="ring-container">
-                <svg class="activity-ring" viewBox="0 0 100 100">
-                  <circle class="ring-bg" cx="50" cy="50" r="40"></circle>
-                  <!-- 251.2 is the full circumference roughly (2 * pi * 40) -->
-                  <circle class="ring-progress" cx="50" cy="50" r="40" style="stroke-dashoffset: 251.2"></circle>
-                </svg>
-                <div class="ring-value">
-                  <span class="value number">0</span><span class="unit">%</span>
-                </div>
-              </div>
-              <div class="card-labels">
-                <span class="label">Today</span>
-                <span class="sub-label">of daily target</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Sleep Card -->
-          <div class="card data-card">
-            <div class="card-header">
-              <span class="label">Sleep</span>
-            </div>
-            <div class="card-body">
-              <div class="value number">—</div>
-              <span class="sub-label">Last night</span>
-            </div>
-          </div>
-
-          <!-- Calories Card -->
-          <div class="card data-card">
-            <div class="card-header">
-              <span class="label">Calories</span>
-            </div>
-            <div class="card-body">
-              <div class="value number">— <span class="unit">/ 2,200 kcal</span></div>
-              <span class="sub-label">— remaining</span>
-            </div>
-          </div>
-
-          <!-- Weekly Summary -->
-          <div class="card summary-card">
-            <div class="card-header">
-              <span class="label">This week</span>
-            </div>
-            <div class="card-body">
-              <div class="bar-graph empty-bars">
-                <!-- Empty bars -->
-                <div class="bar-col"><div class="bar" style="height: 0%"></div><span class="day">M</span></div>
-                <div class="bar-col"><div class="bar" style="height: 0%"></div><span class="day">T</span></div>
-                <div class="bar-col"><div class="bar" style="height: 0%"></div><span class="day">W</span></div>
-                <div class="bar-col"><div class="bar" style="height: 0%"></div><span class="day">T</span></div>
-                <div class="bar-col"><div class="bar" style="height: 0%"></div><span class="day">F</span></div>
-                <div class="bar-col"><div class="bar" style="height: 0%"></div><span class="day">S</span></div>
-                <div class="bar-col"><div class="bar" style="height: 0%"></div><span class="day">S</span></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Streak card -->
-          <div class="card streak-card">
-            <div class="card-header"><span class="label">Streak</span></div>
-            <div class="card-body">
-              <div class="value number"><span>—</span><span class="unit"> days</span></div>
-              <span class="sub-label">Keep it going</span>
-            </div>
-          </div>
-
-          <!-- Next Workout card -->
-          <div class="card next-workout-card">
-            <div class="next-workout-inner">
-              <div>
-                <span class="label">Next workout</span>
-                <div class="next-workout-name">—</div>
-                <span class="sub-label">— exercises</span>
-              </div>
-              <button class="btn-start-next" onclick="switchView('workout')">Start →</button>
-            </div>
-          </div>
+        <div class="hist-card">
+          <div class="hist-val">$180 - $245</div>
+          <div class="hist-lbl">Price Range | Last 12 Months</div>
         </div>
-      </section>
+        <div class="hist-card">
+          <div class="hist-val">12%</div>
+          <div class="hist-lbl">Volatility</div>
+        </div>
+        <div class="hist-card">
+          <div class="hist-val">3,422</div>
+          <div class="hist-lbl">Number of Sales | Last 12 Months</div>
+        </div>
+        <div class="hist-card">
+          <div class="hist-val">30%</div>
+          <div class="hist-lbl">Price Premium | Last Sale</div>
+        </div>
+        <div class="hist-card">
+          <div class="hist-val">$215</div>
+          <div class="hist-lbl">Average Sale Price | Last 12 Months</div>
+        </div>
+      </div>
+    </section>
 
-    </main>
+    <section class="section-spacing trust-badges">
+      <div class="trust-card">
+        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <div class="trust-info">
+          <div class="trust-title">Our Promise</div>
+          <p>Every item is verified by Form Atlas experts before it ships.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <div class="trust-info">
+          <div class="trust-title">Buyer Promise</div>
+          <p>We stand behind every product sold on Form Atlas.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <div class="trust-info">
+          <div class="trust-title">Fast Selling ASAP</div>
+          <p>You can start selling on Form Atlas in just a few clicks.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+  </div> <!-- end wrap -->
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-title">Form Atlas</div>
+          <a href="#">Sneakers</a>
+          <a href="#">Streetwear</a>
+          <a href="#">Collectibles</a>
+          <a href="#">Handbags</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-title">About</div>
+          <a href="#">How It Works</a>
+          <a href="#">Verification</a>
+          <a href="#">Newsroom</a>
+          <a href="#">Company</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-title">Help</div>
+          <a href="#">Help Center</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Product Suggestions</a>
+          <a href="#">Size Guide</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Form Atlas. All Rights Reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="lightbox-overlay" id="lightboxOverlay" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close fullscreen view">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Previous image">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="lightbox-content">
+      <img src="images/lado.jpg" alt="Form Atlas Drift 03 — fullscreen view" id="lightboxImage" />
+    </div>
+    <button class="lightbox-nav next" id="lightboxNext" aria-label="Next image">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
